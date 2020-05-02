@@ -1,24 +1,25 @@
 package ui;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import model.Match;
 
 public class ControllerCancha implements Initializable {
 
 	private static ControllerMenu cm;
-	private Match match;
-//	private BallonThread bt;
-//	private ClockThread ct;
-//	private MarcadorThread mt;
-//	private OpponentThread op;
-	
+
 	@FXML
 	private ImageView jugador;
 	@FXML
@@ -42,8 +43,34 @@ public class ControllerCancha implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		cm = new ControllerMenu();
+		t1.setText("Colombia");
+		t2.setText("Alemania");
+		gt1.setText("0");
+		gt2.setText("0");
+		segundos.setText("0");
+		try {
+			Image image = new Image(new FileInputStream(".\\img\\Cancha.png"));
+			cancha.setImage(image);
+			Image image1 = new Image(new FileInputStream(".\\img\\ColombiaLocal.png"));
+			jugador.setImage(image1);
+			Image image2 = new Image(new FileInputStream(".\\img\\AlemaniaLocal.png"));
+			oponente.setImage(image2);
+			Image image3 = new Image(new FileInputStream(".\\img\\Ball.png"));
+			balon.setX(175);
+			balon.setY(175);
+			balon.setImage(image3);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
-
+	
+	public void arbolPintado(ActionEvent ae) throws Exception {
+		AnchorPane escoger = FXMLLoader.load(getClass().getResource("/application/FinDelJuego.fxml"));
+		Scene scene = new Scene(escoger);
+		cm.getStage().setScene(scene);
+		cm.getStage().setTitle("Fin del juego");
+		cm.getStage().show();
+	}
 	
 }

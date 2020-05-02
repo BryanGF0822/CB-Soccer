@@ -3,6 +3,7 @@ package ui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -26,6 +27,12 @@ public class ControllerFinDelJuego implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		cm = new ControllerMenu();
 		stageFin = new Stage();	
+		puntaje.setText("1000000");
 	}
 	
+	public void guardarJuego(ActionEvent ae) throws Exception {
+		stageFin.close();
+		cm.getMain().start(cm.getStage());
+		cm.getMain().getStage().show();
+	}
 }

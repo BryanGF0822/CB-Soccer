@@ -51,6 +51,7 @@ public class ControllerMenu implements Initializable{
 		Scene scene = new Scene(escoger);
 		main.getStage().close();
 		stageEscoger.setScene(scene);
+		stageEscoger.setTitle("Escoger Equipo");
 		stageEscoger.show();
 	}
 	
@@ -59,6 +60,7 @@ public class ControllerMenu implements Initializable{
 		Scene scene = new Scene(escoger);
 		main.getStage().close();
 		stageEscoger.setScene(scene);
+		stageEscoger.setTitle("Records");
 		stageEscoger.show();
 	}
 	
