@@ -41,11 +41,21 @@ public class ControllerRecords implements Initializable {
 	}
 
 	public void ordenarPorNombre(ActionEvent e) {
-
+		ObservableList<String> list = FXCollections.observableList(new ArrayList<String>());
+		ArrayList<Score> list1 = cm.getGame().ordenarPorNombre();
+		for (int i = 0; i < list1.size(); i++) {
+			list.add((i+1) + ". " + list1.get(i));
+		}
+		puntaje.setItems(list);
 	}
 
 	public void ordenarPorPuntaje(ActionEvent e) {
-
+		ObservableList<String> list = FXCollections.observableList(new ArrayList<String>());
+		ArrayList<Score> list1 = cm.getGame().ordenarPorPuntaje();
+		for (int i = 0; i < list1.size(); i++) {
+			list.add((i+1) + ". " + list1.get(i));
+		}
+		puntaje.setItems(list);
 	}
 
 	public void buscarJugador(ActionEvent e) {
