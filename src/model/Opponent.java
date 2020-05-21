@@ -16,4 +16,11 @@ public class Opponent extends Player{
 		this.vectY = vectY;
 	}
 	
+	public void moverOponente() {
+		setY(vectY + getY());
+		if (getY()> 350 - 66 || getY() < 0) {
+			vectY = -vectY;
+		}
+	}
+	
 }

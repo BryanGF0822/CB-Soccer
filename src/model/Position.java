@@ -2,6 +2,15 @@ package model;
 
 public class Position {
 
+	public final static int octavos = 100;
+	public final static int cuartos = 200;
+	public final static int semis = 300;
+	public final static int finalj = 400;
+	public final static String foctavos = "octavos";
+	public final static String fcuartos = "cuartos de final";
+	public final static String fsemis = "semis";
+	public final static String ffinalj = "final";
+
 	private String name;
 	private Team team1;
 	private Team team2;
@@ -18,9 +27,9 @@ public class Position {
 	}
 
 	public Position() {
-		
+
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -47,10 +56,6 @@ public class Position {
 
 	public Team getTeamGanador() {
 		return teamGanador;
-	}
-
-	public void setTeamGanador(Team teamGanador) {
-		this.teamGanador = teamGanador;
 	}
 
 	public Position getFather() {
@@ -92,7 +97,87 @@ public class Position {
 	public void setFase(String fase) {
 		this.fase = fase;
 	}
+
+	public void setTeamGanador(Team teamGanador) {
+		this.teamGanador = teamGanador;
+		if (getFather() != null) {
+			if (getFather().getTeam1() == null) {
+				getFather().setTeam1(teamGanador);
+			} else {
+				getFather().setTeam2(teamGanador);
+			}
+		}
+	}
+
+	public boolean addPosition(Team team1, Team team2) {
+		boolean add = false;
+		if (left == null && right == null) {
+			if (this.team1 == null && this.team2 == null) {
+				setTeam1(team1);
+				setTeam2(team2);
+				add = true;
+			}
+		} else {
+			if (left.addPosition(team1, team2)) {
+				add = true;
+			} else {
+				add = right.addPosition(team1, team2);
+			}
+		}
+		return add;
+	}
+
+	public Team resultadoPartidos() {
+		Team ganador = null;
+		int numGanador = (int) (Math.random() * 2) + 1;
+		if (numGanador == 1) {
+			ganador = team1;
+		} else {
+			ganador = team2;
+		}
+		return ganador;
+	}
 	
+	public Position posSig() {
+		Position ret = null;
+		if (left == null && right == null) {
+			if (teamGanador == null) {
+				ret = this;
+			}
+		} else {
+			if (left.getTeamGanador() != null && right.getTeamGanador() != null && teamGanador == null) {
+				ret = this;
+
+			} else {
+				ret = left.posSig();
+				if (ret == null) {
+					ret = right.posSig();
+				}
+			}
+		}
+		return ret;
+	}
 	
-	
+	public int getScore(Team teamJugador) {
+		int score = 0;
+		if (team1.getName().equals(teamJugador.getName()) || team2.getName().equals(teamJugador.getName())) {
+			if(fase.equals(foctavos)) {
+				score += octavos;
+			}else if(fase.equals(fcuartos)) {
+				score += cuartos;
+			}else if(fase.equals(fsemis)) {
+				score += semis;
+			}else {
+				score += finalj;
+			}
+		}else {
+			if(right != null) {
+				score += right.getScore(teamJugador);
+			}
+			if(left != null) {
+				score += left.getScore(teamJugador);
+			}
+		}
+		return score;
+	}
 }
