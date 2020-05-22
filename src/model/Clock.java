@@ -3,7 +3,7 @@ package model;
 public class Clock {
 
 	private int seconds;
-	
+
 	public Clock() {
 		seconds = 0;
 	}
@@ -15,5 +15,8 @@ public class Clock {
 	public void setSeconds(int seconds) {
 		this.seconds = seconds;
 	}
-	
+
+	public void time() {
+		setSeconds(getSeconds() + 1);
+	}
 }
