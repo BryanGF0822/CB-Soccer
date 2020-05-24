@@ -10,9 +10,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-import Exceptions.ExceptionFinalJuego;
-import Exceptions.ExceptionNotPlayer;
-import Exceptions.ExceptionNotTeam;
+import exceptions.ExceptionFinalJuego;
+import exceptions.ExceptionNotPlayer;
+import exceptions.ExceptionNotTeam;
 
 public class Game {
 

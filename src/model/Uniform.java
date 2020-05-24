@@ -34,5 +34,24 @@ public class Uniform {
 		this.prev = prev;
 	}
 	
+	public void addUniform(Uniform newUniform) {
+		if (next == null) {
+			next = newUniform;
+		} else {
+			next.addUniform(newUniform);
+		}
+	}
 	
+	public Uniform searchUniform(String img) {
+		if (next != null) {
+			if (next.getImg().equals(img)) {
+				return next;
+			} else {
+				return next.searchUniform(img);
+			}
+		} else {
+			return null;
+		}
+
+	}
 }

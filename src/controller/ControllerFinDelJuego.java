@@ -1,4 +1,4 @@
-package ui;
+package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,10 +27,11 @@ public class ControllerFinDelJuego implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		cm = new ControllerMenu();
 		stageFin = new Stage();	
-		puntaje.setText("1000000");
+		puntaje.setText(Integer.toString(cm.getGame().getScore()));
 	}
 	
 	public void guardarJuego(ActionEvent ae) throws Exception {
+		cm.getGame().addScore(nombre.getText(), cm.getGame().getScore());
 		stageFin.close();
 		cm.getMain().start(cm.getStage());
 		cm.getMain().getStage().show();

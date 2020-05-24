@@ -1,8 +1,10 @@
-package ui;
+package controller;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import exceptions.ExceptionNotPlayer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -59,6 +61,10 @@ public class ControllerRecords implements Initializable {
 	}
 
 	public void buscarJugador(ActionEvent e) {
-
+		try {
+			b.setText(cm.getGame().binarioPuntajeNombre(a.getText()));
+		} catch (ExceptionNotPlayer e1) {
+			b.setText(e1.getMessage());
+		}
 	}
 }

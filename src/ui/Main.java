@@ -9,21 +9,20 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 
 	private static Stage primaryStage;
-	
+
 	@Override
-	public void start(Stage primaryStage) throws Exception{
-		this.primaryStage = primaryStage;
+	public void start(Stage primaryStage) throws Exception {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/application/Menu.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("application/Menu.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setTitle("CB-Soccer");
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -31,5 +30,5 @@ public class Main extends Application {
 	public Stage getStage() {
 		return primaryStage;
 	}
-	
+
 }

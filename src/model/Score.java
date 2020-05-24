@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Score {
+public class Score implements Serializable{
 
 	private String name;
 	private int score;
