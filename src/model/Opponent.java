@@ -13,6 +13,7 @@ public class Opponent extends Player{
 	 */
 	public Opponent(int x, int y, String img) {
 		super(x, y, img);
+		vectY = ((int) Math.random() * 10) + 10;
 	}
 
 	public int getVectY() {

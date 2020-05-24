@@ -24,6 +24,7 @@ public class Game {
 	/**
 	 * [Game description]
 	 * @return [description]
+	 * @throws Exception 
 	 */
 	public Game() {
 		start();

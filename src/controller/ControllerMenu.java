@@ -13,12 +13,12 @@ import javafx.stage.Stage;
 import model.Game;
 import ui.Main;
 
-public class ControllerMenu implements Initializable{
+public class ControllerMenu implements Initializable {
 
 	private static Main main;
 	private static Game game;
 	private static Stage stageEscoger;
-	
+
 	@FXML
 	private Button liga;
 	@FXML
@@ -34,19 +34,19 @@ public class ControllerMenu implements Initializable{
 		game = new Game();
 		stageEscoger = new Stage();
 	}
-	
+
 	public Game getGame() {
 		return game;
 	}
-	
+
 	public Stage getStage() {
 		return stageEscoger;
 	}
-	
+
 	public Main getMain() {
 		return main;
 	}
-	
+
 	public void clickForGame(ActionEvent ae) throws Exception {
 		AnchorPane escoger = FXMLLoader.load(getClass().getResource("/application/EscogerEquipos.fxml"));
 		Scene scene = new Scene(escoger);
@@ -55,8 +55,8 @@ public class ControllerMenu implements Initializable{
 		stageEscoger.setTitle("Escoger Equipo");
 		stageEscoger.show();
 	}
-	
-	public void clickForRecords(ActionEvent ae) throws Exception{
+
+	public void clickForRecords(ActionEvent ae) throws Exception {
 		AnchorPane escoger = FXMLLoader.load(getClass().getResource("/application/Records.fxml"));
 		Scene scene = new Scene(escoger);
 		main.getStage().close();
@@ -64,9 +64,9 @@ public class ControllerMenu implements Initializable{
 		stageEscoger.setTitle("Records");
 		stageEscoger.show();
 	}
-	
-	public void clickForSalir(ActionEvent ae) throws Exception{
+
+	public void clickForSalir(ActionEvent ae) throws Exception {
 		main.getStage().close();
 	}
-	
+
 }

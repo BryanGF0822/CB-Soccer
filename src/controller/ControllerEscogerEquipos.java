@@ -70,6 +70,7 @@ public class ControllerEscogerEquipos implements Initializable {
 			AnchorPane escoger = FXMLLoader.load(getClass().getResource("/application/ArbolPintado.fxml"));
 			Scene scene = new Scene(escoger);
 			cm.getStage().setScene(scene);
+			cm.getStage().setTitle("Etapas del juego");
 			cm.getStage().show();
 		} else {
 			Alert a = new Alert(AlertType.ERROR);
