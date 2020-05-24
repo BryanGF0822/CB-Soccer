@@ -6,6 +6,11 @@ public class Uniform {
 	private Uniform next;
 	private Uniform prev;
 	
+	/**
+	 * [Uniform description]
+	 * @param  img [description]
+	 * @return     [description]
+	 */
 	public Uniform(String img) {
 		this.img = img;
 	}
@@ -33,7 +38,10 @@ public class Uniform {
 	public void setPrev(Uniform prev) {
 		this.prev = prev;
 	}
-	
+	/**
+	 * [addUniform description]
+	 * @param newUniform [description]
+	 */
 	public void addUniform(Uniform newUniform) {
 		if (next == null) {
 			next = newUniform;
@@ -41,7 +49,11 @@ public class Uniform {
 			next.addUniform(newUniform);
 		}
 	}
-	
+	/**
+	 * [searchUniform description]
+	 * @param  img [description]
+	 * @return     [description]
+	 */
 	public Uniform searchUniform(String img) {
 		if (next != null) {
 			if (next.getImg().equals(img)) {

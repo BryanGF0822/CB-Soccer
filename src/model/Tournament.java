@@ -9,6 +9,11 @@ public class Tournament implements Serializable{
 	private Position firstPosition;
 	private Team teamJugador;
 	
+	/**
+	 * [Tournament description]
+	 * @param  teamJugador [description]
+	 * @return             [description]
+	 */
 	public Tournament(Team teamJugador) {
 		firstPosition = new Position();
 		this.teamJugador = teamJugador;
@@ -36,6 +41,11 @@ public class Tournament implements Serializable{
 
 	}
 	
+	/**
+	 * [anhadirHijos description]
+	 * @param pos   [description]
+	 * @param nivel [description]
+	 */
 	public void anhadirHijos(Position pos, int nivel) {
 		if (nivel < 3) {
 			Position prev1 = new Position();
@@ -58,6 +68,10 @@ public class Tournament implements Serializable{
 		}
 	}
 	
+	/**
+	 * [simularPartido description]
+	 * @param pos [description]
+	 */
 	public void simularPartido(Position pos) {
 		Team ganador = null;
 		ganador = pos.resultadoPartidos();
@@ -65,6 +79,11 @@ public class Tournament implements Serializable{
 
 	}
 
+	/**
+	 * [isJugable description]
+	 * @param  position [description]
+	 * @return          [description]
+	 */
 	public boolean isJugable(Position position) {
 		boolean ret = false;
 		if (position.getTeam1().getName().equals(teamJugador.getName())
@@ -74,6 +93,11 @@ public class Tournament implements Serializable{
 		return ret;
 	}
 	
+	/**
+	 * [addMatch description]
+	 * @param  pos [description]
+	 * @return     [description]
+	 */
 	public Match addMatch(Position pos) {
 		Team jugador = null;
 		Team oponente = null;
@@ -95,6 +119,10 @@ public class Tournament implements Serializable{
 		return nuevoM;
 	}
 
+	/**
+	 * [getMatch description]
+	 * @return [description]
+	 */
 	public Match getMatch() {
 		Match m = null;
 		Position pos = firstPosition.posSig();
@@ -109,6 +137,11 @@ public class Tournament implements Serializable{
 		return m;
 	}
 
+	/**
+	 * [nextMatch description]
+	 * @return [description]
+	 * @throws ExceptionFinalJuego [description]
+	 */
 	public boolean nextMatch() throws ExceptionFinalJuego{
 		Position pos = firstPosition.posSig();
 		if(pos == null) {
@@ -121,6 +154,10 @@ public class Tournament implements Serializable{
 		return false;
 	}
 	
+	/**
+	 * [getScore description]
+	 * @return [description]
+	 */
 	public int getScore() {
 		return firstPosition.getScore(teamJugador);
 	}

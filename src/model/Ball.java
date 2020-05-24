@@ -5,6 +5,13 @@ public class Ball extends Drawable {
 	private int vectX;
 	private int vectY;
 
+	/**
+	 * [Ball description]
+	 * @param  x   [description]
+	 * @param  y   [description]
+	 * @param  img [description]
+	 * @return     [description]
+	 */
 	public Ball(int x, int y, String img) {
 
 		super(x, y, img);
@@ -28,7 +35,9 @@ public class Ball extends Drawable {
 	public void setVectY(int vectY) {
 		this.vectY = vectY;
 	}
-
+	/**
+	 * [mover description]
+	 */
 	public void mover() {
 		setX(vectX + getX());
 		setY(vectY + getY());

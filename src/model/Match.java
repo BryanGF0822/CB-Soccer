@@ -14,6 +14,14 @@ public class Match {
 	private Team team2;
 	private Position pos;
 
+	/**
+	 * [Match description]
+	 * @param  clock    [description]
+	 * @param  ball     [description]
+	 * @param  opponent [description]
+	 * @param  gameUser [description]
+	 * @return          [description]
+	 */
 	public Match(Clock clock, Ball ball, Opponent opponent, GameUser gameUser) {
 		super();
 		this.clock = clock;
@@ -88,6 +96,9 @@ public class Match {
 		this.team2 = team2;
 	}
 
+	/**
+	 * [moverBall description]
+	 */
 	public void moverBall() {
 		ball.mover();
 		if (ball.getX() > 600 - 90) {
@@ -99,6 +110,9 @@ public class Match {
 		rebote();
 	}
 
+	/**
+	 * [rebote description]
+	 */
 	public void rebote() {
 		if (ball.getX() + w >= opponent.getX() && opponent.getY() <= ball.getY()
 				&& opponent.getY() + w >= ball.getY()) {
@@ -110,18 +124,28 @@ public class Match {
 		}
 	}
 
+	/**
+	 * [arriba description]
+	 */
 	public void arriba() {
 		if (gameUser.getY() >= 10) {
 			gameUser.setY(gameUser.getY() - 10);
 		}
 	}
 
+	/**
+	 * [abajo description]
+	 */
 	public void abajo() {
 		if (gameUser.getY() <= 340 - w) {
 			gameUser.setY(gameUser.getY() + 10);
 		}
 	}
 
+	/**
+	 * [ganadorPartido description]
+	 * @return [description]
+	 */
 	public Team ganadorPartido() {
 		if (golesTeam1 > golesTeam2) {
 			return team1;
@@ -130,6 +154,10 @@ public class Match {
 		}
 	}
 
+	/**
+	 * [stopGame description]
+	 * @return [description]
+	 */
 	public boolean stopGame() {
 		boolean ret = false;
 		if (clock.getSeconds() > 90) {
@@ -146,6 +174,9 @@ public class Match {
 		this.pos = pos;
 	}
 
+	/**
+	 * [endGame description]
+	 */
 	public void endGame() {
 		pos.setTeamGanador(ganadorPartido());
 

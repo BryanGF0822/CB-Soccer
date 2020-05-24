@@ -10,6 +10,12 @@ public class Score implements Serializable{
 	private Score right;
 	private Score left;
 	
+	/**
+	 * [Score description]
+	 * @param  name  [description]
+	 * @param  score [description]
+	 * @return       [description]
+	 */
 	public Score(String name, int score) {
 		this.name = name;
 		this.score = score;
@@ -40,6 +46,10 @@ public class Score implements Serializable{
 		this.left = left;
 	}
 	
+	/**
+	 * [addScore description]
+	 * @param e [description]
+	 */
 	public void addScore(Score e) {
 		if (this.getScore() >= e.getScore()) {
 			if (left != null) {
@@ -57,6 +67,10 @@ public class Score implements Serializable{
 		}
 	}
 	
+	/**
+	 * [tenScore description]
+	 * @param lista [description]
+	 */
 	public void tenScore(ArrayList<Score> lista) {
 		if (lista.size() < 10) {
 			if (right != null) {
@@ -72,7 +86,10 @@ public class Score implements Serializable{
 
 	}
 	
-
+	/**
+	 * [toString description]
+	 * @return [description]
+	 */
 	@Override
 	public String toString() {
 		return  " " + name + ": " + score;

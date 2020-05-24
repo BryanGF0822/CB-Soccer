@@ -7,6 +7,11 @@ public class Team {
 	private Team sig;
 	private Team prev;
 
+	/**
+	 * [Team description]
+	 * @param  name [description]
+	 * @return      [description]
+	 */
 	public Team(String name) {
 		this.setName(name);
 	}
@@ -43,6 +48,10 @@ public class Team {
 		this.prev = prev;
 	}
 
+	/**
+	 * [addTeam description]
+	 * @param newTeam [description]
+	 */
 	public void addTeam(Team newTeam) {
 		if (sig == null) {
 			newTeam.setPrev(this);
@@ -51,7 +60,11 @@ public class Team {
 			sig.addTeam(newTeam);
 		}
 	}
-
+	/**
+	 * [searchTeam description]
+	 * @param  name2 [description]
+	 * @return       [description]
+	 */
 	public Team searchTeam(String name2) {
 		if (sig != null) {
 			if (sig.getName().equalsIgnoreCase(name2)) {
@@ -64,6 +77,10 @@ public class Team {
 		}
 	}
 
+	/**
+	 * [addUniform description]
+	 * @param newUniform [description]
+	 */
 	public void addUniform(Uniform newUniform) {
 		if (firstUniform == null) {
 			firstUniform = newUniform;
@@ -73,6 +90,11 @@ public class Team {
 
 	}
 
+	/**
+	 * [searchUniform description]
+	 * @param  img [description]
+	 * @return     [description]
+	 */
 	public Uniform searchUniform(String img) {
 		if (firstUniform != null) {
 			if (firstUniform.getImg().equals(img)) {
@@ -84,7 +106,11 @@ public class Team {
 			return null;
 		}
 	}
-
+	
+	/**
+	 * [toString description]
+	 * @return [description]
+	 */
 	public String toString() {
 		return name;
 	}

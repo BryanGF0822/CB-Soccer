@@ -21,6 +21,12 @@ public class Position {
 	private Match match;
 	private String fase;
 
+	/**
+	 * [Position description]
+	 * @param  team1 [description]
+	 * @param  team2 [description]
+	 * @return       [description]
+	 */
 	public Position(Team team1, Team team2) {
 		this.team1 = team1;
 		this.team2 = team2;
@@ -98,6 +104,10 @@ public class Position {
 		this.fase = fase;
 	}
 
+	/**
+	 * [setTeamGanador description]
+	 * @param teamGanador [description]
+	 */
 	public void setTeamGanador(Team teamGanador) {
 		this.teamGanador = teamGanador;
 		if (getFather() != null) {
@@ -109,6 +119,12 @@ public class Position {
 		}
 	}
 
+	/**
+	 * [addPosition description]
+	 * @param  team1 [description]
+	 * @param  team2 [description]
+	 * @return       [description]
+	 */
 	public boolean addPosition(Team team1, Team team2) {
 		boolean add = false;
 		if (left == null && right == null) {
@@ -126,7 +142,10 @@ public class Position {
 		}
 		return add;
 	}
-
+	/**
+	 * [resultadoPartidos description]
+	 * @return [description]
+	 */
 	public Team resultadoPartidos() {
 		Team ganador = null;
 		int numGanador = (int) (Math.random() * 2) + 1;
@@ -137,7 +156,10 @@ public class Position {
 		}
 		return ganador;
 	}
-	
+	/**
+	 * [posSig description]
+	 * @return [description]
+	 */
 	public Position posSig() {
 		Position ret = null;
 		if (left == null && right == null) {
@@ -158,6 +180,11 @@ public class Position {
 		return ret;
 	}
 	
+	/**
+	 * [getScore description]
+	 * @param  teamJugador [description]
+	 * @return             [description]
+	 */
 	public int getScore(Team teamJugador) {
 		int score = 0;
 		if (team1.getName().equals(teamJugador.getName()) || team2.getName().equals(teamJugador.getName())) {

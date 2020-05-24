@@ -21,6 +21,10 @@ public class Game {
 	private Team firstTeam;
 	private ArrayList<Team> listaSorteo;
 
+	/**
+	 * [Game description]
+	 * @return [description]
+	 */
 	public Game() {
 		start();
 		organizarEquipos();
@@ -31,6 +35,10 @@ public class Game {
 		return firstTeam;
 	}
 
+	/**
+	 * [addTeam description]
+	 * @param n [description]
+	 */
 	public void addTeam(String n) {
 		Team newTeam = new Team(n);
 		if (firstTeam == null) {
@@ -40,6 +48,9 @@ public class Game {
 		}
 	}
 
+	/**
+	 * [organizarEquipos description]
+	 */
 	public void organizarEquipos() {
 		if (firstTeam != null) {
 			Team act = firstTeam;
@@ -92,6 +103,11 @@ public class Game {
 		}
 	}
 
+	/**
+	 * [searchTeam description]
+	 * @param  name [description]
+	 * @return      [description]
+	 */
 	public Team searchTeam(String name) {
 		if (firstTeam != null) {
 			if (firstTeam.getName().equalsIgnoreCase(name)) {
@@ -104,6 +120,11 @@ public class Game {
 		}
 	}
 
+	/**
+	 * [addUniform description]
+	 * @param nameTeam [description]
+	 * @param img      [description]
+	 */
 	public void addUniform(String nameTeam, String img) {
 		Uniform newUniform = new Uniform(img);
 		if (searchTeam(nameTeam) != null) {
@@ -111,6 +132,12 @@ public class Game {
 		}
 	}
 
+	/**
+	 * [searchUniform description]
+	 * @param  nameTeam [description]
+	 * @param  img      [description]
+	 * @return          [description]
+	 */
 	public Uniform searchUniform(String nameTeam, String img) {
 		if (searchTeam(nameTeam) != null) {
 			return searchTeam(nameTeam).searchUniform(img);
@@ -122,6 +149,9 @@ public class Game {
 		loadTeams();
 	}
 
+	/**
+	 * [loadTeams description]
+	 */
 	public void loadTeams() {
 		File a = new File("./data/Teams.txt");
 		try {
@@ -148,6 +178,9 @@ public class Game {
 		}
 	}
 
+	/**
+	 * [serializableScores description]
+	 */
 	public void serializableScores() {
 		try {
 			FileOutputStream fs = new FileOutputStream(".\\data\\Scores.txt");
@@ -159,6 +192,9 @@ public class Game {
 		}
 	}
 
+	/**
+	 * [readScore description]
+	 */
 	public void readScore() {
 		try {
 			File f = new File(".\\data\\Scores.txt");
@@ -174,6 +210,10 @@ public class Game {
 		}
 	}
 
+	/**
+	 * [hacerListaTeam description]
+	 * @return [description]
+	 */
 	public ArrayList<Team> hacerListaTeam() {
 		ArrayList<Team> lt = new ArrayList<Team>();
 		Team sig = firstTeam;
@@ -184,14 +224,26 @@ public class Game {
 		return lt;
 	}
 
+	/**
+	 * [getListaSorteo description]
+	 * @return [description]
+	 */
 	public ArrayList<Team> getListaSorteo() {
 		return listaSorteo;
 	}
 
+	/**
+	 * [addPosition description]
+	 * @param team1 [description]
+	 * @param team2 [description]
+	 */
 	public void addPosition(Team team1, Team team2) {
 		tournament.addPosition(team1, team2);
 	}
 
+	/**
+	 * [makeTournament description]
+	 */
 	public void makeTournament() {
 		ArrayList<Integer> selected = new ArrayList<Integer>();
 		int max = listaSorteo.size();
@@ -212,6 +264,11 @@ public class Game {
 		}
 	}
 
+	/**
+	 * [addScore description]
+	 * @param n [description]
+	 * @param e [description]
+	 */
 	public void addScore(String n, int e) {
 		Score pri = new Score(n, e);
 		if (firstScore == null) {
@@ -222,6 +279,10 @@ public class Game {
 		serializableScores();
 	}
 
+	/**
+	 * [ordenarPorPuntaje description]
+	 * @return [description]
+	 */
 	public ArrayList<Score> ordenarPorPuntaje() {
 		ArrayList<Score> lista = new ArrayList<Score>();
 		if (firstScore != null) {
@@ -230,6 +291,10 @@ public class Game {
 		return lista;
 	}
 
+	/**
+	 * [ordenarPorNombre description]
+	 * @return [description]
+	 */
 	public ArrayList<Score> ordenarPorNombre() {
 		ArrayList<Score> e = ordenarPorPuntaje();
 		for (int i = 0; i < e.size(); i++) {
@@ -242,6 +307,10 @@ public class Game {
 		return e;
 	}
 
+	/**
+	 * [pasar description]
+	 * @return [description]
+	 */
 	public ArrayList<Team> pasar() {
 		ArrayList<Team> e = new ArrayList<Team>();
 		Team actual = firstTeam;
@@ -252,6 +321,12 @@ public class Game {
 		return e;
 	}
 
+	/**
+	 * [binarioEquipoNombre description]
+	 * @param  a                [description]
+	 * @return                  [description]
+	 * @throws ExceptionNotTeam [description]
+	 */
 	public String binarioEquipoNombre(String a) throws ExceptionNotTeam {
 		ArrayList<Team> e = pasar();
 		String msg = "";
@@ -276,11 +351,16 @@ public class Game {
 		return msg;
 	}
 
+	/**
+	 * [addTeamJugador description]
+	 * @param team [description]
+	 */
 	public void addTeamJugador(Team team) {
 		tournament = new Tournament(team);
 		listaSorteo = hacerListaTeam();
 		makeTournament();
 	}
+
 
 	public Position getPosition() {
 		return tournament.getFirstPosition();
@@ -290,6 +370,12 @@ public class Game {
 		return tournament.getMatch();
 	}
 
+	/**
+	 * [binarioPuntajeNombre description]
+	 * @param  a                  [description]
+	 * @return                    [description]
+	 * @throws ExceptionNotPlayer [description]
+	 */
 	public String binarioPuntajeNombre(String a) throws ExceptionNotPlayer {
 		ArrayList<Score> e = ordenarPorNombre();
 		String msg = "";

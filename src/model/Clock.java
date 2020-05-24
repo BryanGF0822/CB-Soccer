@@ -4,6 +4,10 @@ public class Clock {
 
 	private int seconds;
 
+	/**
+	 * [Clock description]
+	 * @return [description]
+	 */
 	public Clock() {
 		seconds = 0;
 	}
@@ -16,6 +20,9 @@ public class Clock {
 		this.seconds = seconds;
 	}
 
+	/**
+	 * [time description]
+	 */
 	public void time() {
 		setSeconds(getSeconds() + 1);
 	}

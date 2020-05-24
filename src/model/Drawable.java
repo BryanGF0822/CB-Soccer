@@ -6,6 +6,13 @@ public class Drawable {
 	private int y;
 	private String img;
 
+	/**
+	 * [Drawable description]
+	 * @param  x   [description]
+	 * @param  y   [description]
+	 * @param  img [description]
+	 * @return     [description]
+	 */
 	public Drawable(int x, int y, String img) {
 		this.x = x;
 		this.y = y;
