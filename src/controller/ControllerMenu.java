@@ -2,6 +2,8 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Game;
-import ui.Main;
 
 public class ControllerMenu implements Initializable {
 
