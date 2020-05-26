@@ -12,8 +12,10 @@ CB-Soccer is a videogame built in 2D that simulates a world class soccer champio
 # 1. Analisis.
 This section you will find all the analysis documents for the development of this software, such as: Functional requirements, non-functional requirements and Unit test design.
 
-### *a. Functional requirements, non-functional requirements.*
-Click here to see the [requirements]() .
+### *a. Functional Requirements and Non-functional.*
+Click here to see [The Requirements](https://github.com/chumbi27escobar3/CB-Soccer/blob/master/docs/Requerimiento%20funcionales%20y%20no%20funcionales..pdf) .
+### *b. Unit Test Desing.*
+Click here to see [Test Desing]().
 
 ## A friendly main menu.
 ![Captura de Pantalla 2020-05-24 a la(s) 3 03 18 a  m](https://user-images.githubusercontent.com/48836505/82748920-52891b00-9d6b-11ea-86b7-fd8b79ff8306.png)
