@@ -22,7 +22,7 @@ public class ControllerRecords implements Initializable {
 	private Stage stageRecords;
 
 	@FXML
-	private Label b;
+	private TextField b;
 
 	@FXML
 	private TextField a;

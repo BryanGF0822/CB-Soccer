@@ -57,10 +57,10 @@
             <DropShadow />
          </effect></Label>
       <TextField fx:id="a" layoutX="51.0" layoutY="279.0" prefHeight="25.0" prefWidth="92.0" />
-      <Label fx:id="b" layoutX="52.0" layoutY="324.0" />
       <Button layoutX="153.0" layoutY="279.0" mnemonicParsing="false" onAction="#buscarJugador" style="-fx-background-color: #FACC2E;" text="Search">
          <effect>
             <DropShadow />
          </effect></Button>
+      <TextField fx:id="b" layoutX="51.0" layoutY="322.0" prefHeight="25.0" prefWidth="92.0" />
    </children>
 </AnchorPane>
