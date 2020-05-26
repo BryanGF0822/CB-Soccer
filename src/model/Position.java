@@ -6,10 +6,10 @@ public class Position {
 	public final static int cuartos = 200;
 	public final static int semis = 300;
 	public final static int finalj = 400;
-	public final static String foctavos = "octavos";
-	public final static String fcuartos = "cuartos de final";
-	public final static String fsemis = "semis";
-	public final static String ffinalj = "final";
+	public final static String foctavos = "Octavos";
+	public final static String fcuartos = "Cuartos de final";
+	public final static String fsemis = "Semi final";
+	public final static String ffinalj = "Final";
 
 	private String name;
 	private Team team1;

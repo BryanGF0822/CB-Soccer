@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Random;
 
 import exceptions.ExceptionFinalJuego;
 
@@ -109,9 +110,11 @@ public class Tournament implements Serializable{
 			oponente = pos.getTeam1();
 		}
 		Clock c = new Clock();
-		Ball b = new Ball(200, 200, "ball.jpg");
-		GameUser gu = new GameUser(30, 0, "img\\"+jugador.getName() + "Local.png");
-		Opponent op = new Opponent(450, 20,"img\\"+ oponente.getName() + "Local.png");
+		Ball b = new Ball(280, 150, "ball.jpg");
+		GameUser gu = new GameUser(50, 0, "img\\"+jugador.getName() + "Local.png");
+		Random r = new Random();
+		int y = r.nextInt(28)*10;
+		Opponent op = new Opponent(480, y,"img\\"+ oponente.getName() + "Local.png");
 		Match nuevoM = new Match(c, b, op, gu);
 		nuevoM.setTeam1(jugador);
 		nuevoM.setTeam2(oponente);

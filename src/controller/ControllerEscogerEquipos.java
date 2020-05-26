@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -67,7 +68,7 @@ public class ControllerEscogerEquipos implements Initializable {
 
 	public void clickJugar(ActionEvent ae) throws Exception {
 		if (selTeam && selUni) {
-			AnchorPane escoger = FXMLLoader.load(getClass().getResource("/application/ArbolPintado.fxml"));
+			Parent escoger = FXMLLoader.load(getClass().getResource("/application/ArbolPintado.fxml"));
 			Scene scene = new Scene(escoger);
 			cm.getStage().setScene(scene);
 			cm.getStage().setTitle("Etapas del juego");

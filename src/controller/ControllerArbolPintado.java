@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -37,7 +38,7 @@ public class ControllerArbolPintado implements Initializable {
 			if (cm.getGame().nextMatch()) {
 				dibujarArbol();
 			} else {
-				AnchorPane escoger = FXMLLoader.load(getClass().getResource("/application/Cancha.fxml"));
+				Parent escoger = FXMLLoader.load(getClass().getResource("/application/Cancha.fxml"));
 				Scene scene = new Scene(escoger);
 				cm.getStage().setScene(scene);
 				cm.getStage().show();
@@ -64,7 +65,7 @@ public class ControllerArbolPintado implements Initializable {
 	}
 	
 	public void changeScreen() throws Exception {
-		AnchorPane escoger = FXMLLoader.load(getClass().getResource("/application/FinDelJuego.fxml"));
+		Parent escoger = FXMLLoader.load(getClass().getResource("/application/FinDelJuego.fxml"));
 		Scene scene = new Scene(escoger);
 		cm.getStage().setScene(scene);
 		cm.getStage().show();

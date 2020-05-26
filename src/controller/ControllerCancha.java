@@ -1,5 +1,6 @@
 package controller;
 
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -9,8 +10,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -52,6 +55,9 @@ public class ControllerCancha implements Initializable {
 	private Text t2;
 	@FXML
 	private Button continuar;
+	@FXML 
+	private Label etapa;
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -61,12 +67,13 @@ public class ControllerCancha implements Initializable {
 		t2.setText(match.getTeam2().getName());
 		gt1.setText("0");
 		gt2.setText("0");
+		etapa.setText(match.getPos().getFase());
 		bt = new BallonThread(this, match);
 		bt.start();
 		segundos.setText("0");
 		ct = new ClockThread(this, match);
 		ct.start();		
-		op = new OpponentThread(this, match.getOpponent());
+		op = new OpponentThread(this, match);
 		op.start();
 		mt = new MarcadorThread(this, match);
 		mt.start();
@@ -115,7 +122,7 @@ public class ControllerCancha implements Initializable {
 	}
 	
 	public void arbolPintado(ActionEvent ae) throws Exception {
-		AnchorPane escoger = FXMLLoader.load(getClass().getResource("/application/ArbolPintado.fxml"));
+		Parent escoger = FXMLLoader.load(getClass().getResource("/application/ArbolPintado.fxml"));
 		Scene scene = new Scene(escoger);
 		cm.getStage().setScene(scene);
 		cm.getStage().setTitle("Etapas del juego");

@@ -41,10 +41,10 @@ public class Ball extends Drawable {
 	public void mover() {
 		setX(vectX + getX());
 		setY(vectY + getY());
-		if (getX() > 600 - 90 || getX() < 0) {
+		if (getX() >= 600 - 50 || getX() <= 0) {
 			vectX = -vectX;
 		}
-		if (getY() > 350 - 66 || getY() < 0) {
+		if (getY() >= 350 - 50 || getY() <= 0) {
 			vectY = -vectY;
 		}
 

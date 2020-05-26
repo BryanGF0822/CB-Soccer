@@ -2,8 +2,10 @@ package model;
 
 public class Match {
 
-	public final static int w = 90;
-
+	public final static int IMG_DIM = 70;
+	public final static int BALL = 50;
+	public final static int MATCH_TIME = 90;
+	
 	private Clock clock;
 	private Ball ball;
 	private Opponent opponent;
@@ -101,10 +103,10 @@ public class Match {
 	 */
 	public void moverBall() {
 		ball.mover();
-		if (ball.getX() > 600 - 90) {
+		if (ball.getX() >= 600 - 50) {
 			golesTeam1++;
 		}
-		if (ball.getX() < 0) {
+		if (ball.getX() <= 0) {
 			golesTeam2++;
 		}
 		rebote();
@@ -114,12 +116,12 @@ public class Match {
 	 * [rebote description]
 	 */
 	public void rebote() {
-		if (ball.getX() + w >= opponent.getX() && opponent.getY() <= ball.getY()
-				&& opponent.getY() + w >= ball.getY()) {
+		if (ball.getX() + BALL >= opponent.getX() && opponent.getY() <= ball.getY()
+				&& opponent.getY() + IMG_DIM >= ball.getY() + BALL) {
 			ball.setVectX(-Math.abs(ball.getVectX()));
 		}
-		if (ball.getX() <= gameUser.getX() + w && gameUser.getY() <= ball.getY()
-				&& gameUser.getY() + w >= ball.getY()) {
+		if (ball.getX() <= gameUser.getX() + IMG_DIM && gameUser.getY() <= ball.getY()
+				&& gameUser.getY() + IMG_DIM >= ball.getY() + BALL) {
 			ball.setVectX(Math.abs(ball.getVectX()));
 		}
 	}
@@ -137,7 +139,7 @@ public class Match {
 	 * [abajo description]
 	 */
 	public void abajo() {
-		if (gameUser.getY() <= 340 - w) {
+		if (gameUser.getY() <= 340 - IMG_DIM) {
 			gameUser.setY(gameUser.getY() + 10);
 		}
 	}
@@ -160,7 +162,7 @@ public class Match {
 	 */
 	public boolean stopGame() {
 		boolean ret = false;
-		if (clock.getSeconds() > 90) {
+		if (clock.getSeconds() >= MATCH_TIME) {
 			ret = true;
 		}
 		return ret;

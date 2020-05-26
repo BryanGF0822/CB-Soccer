@@ -29,7 +29,7 @@ public class Opponent extends Player{
 	 */
 	public void moverOponente() {
 		setY(vectY + getY());
-		if (getY()> 350 - 66 || getY() < 0) {
+		if (getY() >= 350 - Match.IMG_DIM || getY() <= 0) {
 			vectY = -vectY;
 		}
 	}

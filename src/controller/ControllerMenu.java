@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -49,7 +50,7 @@ public class ControllerMenu implements Initializable {
 	}
 
 	public void clickForGame(ActionEvent ae) throws Exception {
-		AnchorPane escoger = FXMLLoader.load(getClass().getResource("/application/EscogerEquipos.fxml"));
+		Parent escoger = FXMLLoader.load(getClass().getResource("/application/EscogerEquipos.fxml"));
 		Scene scene = new Scene(escoger);
 		main.getStage().close();
 		stageEscoger.setScene(scene);
@@ -58,7 +59,7 @@ public class ControllerMenu implements Initializable {
 	}
 
 	public void clickForRecords(ActionEvent ae) throws Exception {
-		AnchorPane escoger = FXMLLoader.load(getClass().getResource("/application/Records.fxml"));
+		Parent escoger = FXMLLoader.load(getClass().getResource("/application/Records.fxml"));
 		Scene scene = new Scene(escoger);
 		main.getStage().close();
 		stageEscoger.setScene(scene);

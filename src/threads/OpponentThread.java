@@ -1,24 +1,25 @@
 package threads;
 
 import controller.ControllerCancha;
+import model.Match;
 import model.Opponent;
 
 public class OpponentThread extends Thread {
 
-	private Opponent o;
+	private Match m;
 	private ControllerCancha cc;
 
-	public OpponentThread(ControllerCancha cc, Opponent o) {
+	public OpponentThread(ControllerCancha cc, Match m) {
 		this.cc = cc;
-		this.o = o;
+		this.m = m;
 	}
 
 	public void run() {
-		boolean noEnd = true;
-		while (noEnd) {
+		
+		while (!m.stopGame()) {
 			try {
 				sleep(200);
-				o.moverOponente();
+				m.getOpponent().moverOponente();
 				cc.moveOpponent();
 			} catch (InterruptedException e) {
 
