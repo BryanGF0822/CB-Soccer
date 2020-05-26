@@ -1,15 +1,24 @@
 package model;
 
-public class Opponent extends Player{
+/**
+ * Es una clase que hereda de Player para crear un oponente para el usuario a la
+ * hora de jugar.
+ * 
+ * @author guapi
+ *
+ */
+public class Opponent extends Player {
 
 	private int vectY;
-	
+
 	/**
-	 * [Opponent description]
-	 * @param  x   [description]
-	 * @param  y   [description]
-	 * @param  img [description]
-	 * @return     [description]
+	 * Este metodoconstructor me permite crear un nuevo usuario de juego un nuevo
+	 * Opponent.
+	 * 
+	 * @param x   Parametro que contiene las coordenadas en X.
+	 * @param y   Parametro que contiene las coordenadas en Y.
+	 * @param img Parametro que contiene un archivo de tipo imagen.
+	 * @return Retorna un objeto de tipo Opponent.
 	 */
 	public Opponent(int x, int y, String img) {
 		super(x, y, img);
@@ -23,9 +32,9 @@ public class Opponent extends Player{
 	public void setVectY(int vectY) {
 		this.vectY = vectY;
 	}
-	
+
 	/**
-	 * [moverOponente description]
+	 * Este metodo permite que el oponente se dezplace para evitar una anotacion.
 	 */
 	public void moverOponente() {
 		setY(vectY + getY());
@@ -33,5 +42,5 @@ public class Opponent extends Player{
 			vectY = -vectY;
 		}
 	}
-	
+
 }

@@ -1,5 +1,13 @@
 package model;
 
+/**
+ * Esta Clase es abstracta y de ella hereda la clase Ball la cualme permite
+ * heredarle como padre, los atributos de esta clase para que puedan ser
+ * utilizados por las demas clases hijas que hereden de ésta.
+ * 
+ * @author guapi
+ *
+ */
 public class Drawable {
 
 	private int x;
@@ -7,11 +15,12 @@ public class Drawable {
 	private String img;
 
 	/**
-	 * [Drawable description]
-	 * @param  x   [description]
-	 * @param  y   [description]
-	 * @param  img [description]
-	 * @return     [description]
+	 * Este es metodo constructor de la clase abstracta Drawable.
+	 * 
+	 * @param x   Este es el parametro que define las coordenadas en el eje X.
+	 * @param y   Este es el parametroq ue define las coordenadas en el ejer Y.
+	 * @param img Este parametro guarda un archivo de imagen que se desee.
+	 * @return El retorno es un objeto de tipo Drawable con todos sus parametros.
 	 */
 	public Drawable(int x, int y, String img) {
 		this.x = x;
@@ -42,7 +51,5 @@ public class Drawable {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	
-	
-	
+
 }

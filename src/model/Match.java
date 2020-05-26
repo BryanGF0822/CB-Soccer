@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * Esta clase se encarga de montar todo lo necesario para realizar un partido es
+ * decir la cancha, el reloj, los equipos a jugar, entre otros.
+ * 
+ * @author guapi
+ *
+ */
 public class Match {
 
 	public final static int IMG_DIM = 70;
@@ -17,12 +24,17 @@ public class Match {
 	private Position pos;
 
 	/**
-	 * [Match description]
-	 * @param  clock    [description]
-	 * @param  ball     [description]
-	 * @param  opponent [description]
-	 * @param  gameUser [description]
-	 * @return          [description]
+	 * Metodo constructor de la clase Match que se encarga de creo un objeto de tipo
+	 * Match.
+	 * 
+	 * @param clock    Relacion con la clase Clock para tomar el tiempo del partido.
+	 * @param ball     Relacion con la clase Ball para crear un balon para el juego.
+	 * @param opponent Relacion con la clase Opponent que crea el equipo adversario
+	 *                 al cual se va a enfrentar el usuario.
+	 * @param gameUser Relacion con la clse GameUser que crea el equipo con el cual
+	 *                 va a participar el ususario.
+	 * @return Retorna un objeto de tipo Match con todas sus instancias para crear
+	 *         un partido.
 	 */
 	public Match(Clock clock, Ball ball, Opponent opponent, GameUser gameUser) {
 		super();
@@ -99,7 +111,7 @@ public class Match {
 	}
 
 	/**
-	 * [moverBall description]
+	 * Este metodo me permite mover el balon dentro de la cancha.
 	 */
 	public void moverBall() {
 		ball.mover();
@@ -113,7 +125,8 @@ public class Match {
 	}
 
 	/**
-	 * [rebote description]
+	 * Este metodo permite el revote del balon cuando toca al jugador o haga
+	 * contacto con los bordes de la cancha.
 	 */
 	public void rebote() {
 		if (ball.getX() + BALL >= opponent.getX() && opponent.getY() <= ball.getY()
@@ -127,7 +140,8 @@ public class Match {
 	}
 
 	/**
-	 * [arriba description]
+	 * Este metodo se encarga de mover el jugador del usuarios hacia arriba cuando
+	 * el lo desee. (teclas de direccion).
 	 */
 	public void arriba() {
 		if (gameUser.getY() >= 10) {
@@ -136,7 +150,8 @@ public class Match {
 	}
 
 	/**
-	 * [abajo description]
+	 * [Este metodo se encarga de mover el jugador del usuarios hacia abajo cuando
+	 * el lo desee. (teclas de direccion).
 	 */
 	public void abajo() {
 		if (gameUser.getY() <= 340 - IMG_DIM) {
@@ -145,8 +160,10 @@ public class Match {
 	}
 
 	/**
-	 * [ganadorPartido description]
-	 * @return [description]
+	 * Este metodo se encarga de saber cual es el equipo ganador luego de finalizado
+	 * el partido a partir de los goles realizados por cada equipo.
+	 * 
+	 * @return Retorna el equipo ganador.
 	 */
 	public Team ganadorPartido() {
 		if (golesTeam1 > golesTeam2) {
@@ -157,8 +174,9 @@ public class Match {
 	}
 
 	/**
-	 * [stopGame description]
-	 * @return [description]
+	 * Este metodo me permite detener completamente el juego cuando se desee salir.
+	 * 
+	 * @return [Retorna un true para salir del programa.
 	 */
 	public boolean stopGame() {
 		boolean ret = false;
@@ -177,7 +195,8 @@ public class Match {
 	}
 
 	/**
-	 * [endGame description]
+	 * Este metodo se encarga de cambiar el ganador del partido para poder saber que
+	 * equipo obtiene la victoria.
 	 */
 	public void endGame() {
 		pos.setTeamGanador(ganadorPartido());

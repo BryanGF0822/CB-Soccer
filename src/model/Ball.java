@@ -1,16 +1,26 @@
 package model;
 
+/**
+ * Esta clase es la que se encarga de crear el balon que tendrá funcion a la
+ * hora iniciar los partidos.
+ * 
+ * @author guapi
+ *
+ */
 public class Ball extends Drawable {
 
 	private int vectX;
 	private int vectY;
 
 	/**
-	 * [Ball description]
-	 * @param  x   [description]
-	 * @param  y   [description]
-	 * @param  img [description]
-	 * @return     [description]
+	 * Este es el metodo constructor del balon, el cual tiene unas dimesiones en X,
+	 * Y y tiene una imagen que la que podrá visualizarse a la hora de jugar.
+	 * 
+	 * @param x   Parametro que define las coordenadas en el eje X.
+	 * @param y   Parametro que define las coordenadas en el eje Y.
+	 * @param img Parametro que porta un archivo de foto que representa el balon.
+	 * @return El retorno es un objeto de tipo balon, es este caso, el balon del
+	 *         juego.
 	 */
 	public Ball(int x, int y, String img) {
 
@@ -35,8 +45,11 @@ public class Ball extends Drawable {
 	public void setVectY(int vectY) {
 		this.vectY = vectY;
 	}
+
 	/**
-	 * [mover description]
+	 * Este metodo es el encargado de los movimientos del balon en los ejes X y Y
+	 * que se estará moviendo durante los partidos y los golpes dados por los
+	 * jugadores.
 	 */
 	public void mover() {
 		setX(vectX + getX());
