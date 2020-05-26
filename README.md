@@ -9,6 +9,12 @@ We are students of Systems Engineering at Icesi University in Colombia and this 
 # What's CB-Soccer about?
 CB-Soccer is a videogame built in 2D that simulates a world class soccer championship, in which you have the option to select the team you want to compete with, the uniform you want to wear (local or visiting) and also allows you to visualize the points you earn when playing the CB-Soccer cup and see if you are improving your skills for this videogame.
 
+# 1. Analisis.
+This section you will find all the analysis documents for the development of this software, such as: Functional requirements, non-functional requirements and Unit test design.
+
+### *a. Functional requirements, non-functional requirements.*
+Click here to see the [requirements]() .
+
 ## A friendly main menu.
 ![Captura de Pantalla 2020-05-24 a la(s) 3 03 18 a  m](https://user-images.githubusercontent.com/48836505/82748920-52891b00-9d6b-11ea-86b7-fd8b79ff8306.png)
 
