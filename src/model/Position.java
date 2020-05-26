@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * Esta clase crea las posiciones del arbol a la hora de ver la organizacion de
+ * toda la copa que se va a jugar.
+ * 
+ * @author guapi
+ *
+ */
 public class Position {
 
 	public final static int octavos = 100;
@@ -22,10 +29,11 @@ public class Position {
 	private String fase;
 
 	/**
-	 * [Position description]
-	 * @param  team1 [description]
-	 * @param  team2 [description]
-	 * @return       [description]
+	 * Metodo constructor que crea las posiciones de los equipos 1 y 2
+	 * 
+	 * @param team1 Parametro que contiene el equipo 1
+	 * @param team2 Parametro que contiene el equipo 2
+	 * @return Retorna un objeto de tipo Position.
 	 */
 	public Position(Team team1, Team team2) {
 		this.team1 = team1;
@@ -105,8 +113,9 @@ public class Position {
 	}
 
 	/**
-	 * [setTeamGanador description]
-	 * @param teamGanador [description]
+	 * Este metodo permite cambiar el equipo ganardor finalizado el partido.
+	 * 
+	 * @param teamGanador Parametro que contiene el equipo ganador.
 	 */
 	public void setTeamGanador(Team teamGanador) {
 		this.teamGanador = teamGanador;
@@ -120,10 +129,11 @@ public class Position {
 	}
 
 	/**
-	 * [addPosition description]
-	 * @param  team1 [description]
-	 * @param  team2 [description]
-	 * @return       [description]
+	 * Este metodo me permite añadir las posiciones de los equipos 1 y 2.
+	 * 
+	 * @param team1 Parametro que contiene el equipo 1.
+	 * @param team2 Parametro que contiene el equipo 2.
+	 * @return Retorna la posicion añadida.
 	 */
 	public boolean addPosition(Team team1, Team team2) {
 		boolean add = false;
@@ -142,9 +152,11 @@ public class Position {
 		}
 		return add;
 	}
+
 	/**
-	 * [resultadoPartidos description]
-	 * @return [description]
+	 * Este metodo me permite conocer el resultado de los partidos jugados.
+	 * 
+	 * @return Retorna el equipo ganador.
 	 */
 	public Team resultadoPartidos() {
 		Team ganador = null;
@@ -156,9 +168,11 @@ public class Position {
 		}
 		return ganador;
 	}
+	
 	/**
-	 * [posSig description]
-	 * @return [description]
+	 * Este metdo me permite acceder a ls posicion siguiente en el Arbol.
+	 * 
+	 * @return Retorna la posicion.
 	 */
 	public Position posSig() {
 		Position ret = null;
@@ -181,9 +195,10 @@ public class Position {
 	}
 	
 	/**
-	 * [getScore description]
-	 * @param  teamJugador [description]
-	 * @return             [description]
+	 * Este metodo me permite conocer el Score del jugador.
+	 * 
+	 * @param teamJugador Parametro que contiene el equipo del usuario.
+	 * @return Retorna el Score.
 	 */
 	public int getScore(Team teamJugador) {
 		int score = 0;

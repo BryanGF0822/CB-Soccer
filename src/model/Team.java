@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * Esta clase es la encargado de generar equipos que contengan todos
+ * susparametros como un nombre y un uniforme.
+ * 
+ * @author guapi
+ *
+ */
 public class Team {
 
 	private String name;
@@ -8,9 +15,10 @@ public class Team {
 	private Team prev;
 
 	/**
-	 * [Team description]
-	 * @param  name [description]
-	 * @return      [description]
+	 * Metodo constructor que se encarga de crear un equipo.
+	 * 
+	 * @param name Parametro que contiene el nombre del equipo.
+	 * @return Retorna un objeto de tipoTeam.
 	 */
 	public Team(String name) {
 		this.setName(name);
@@ -49,8 +57,10 @@ public class Team {
 	}
 
 	/**
-	 * [addTeam description]
-	 * @param newTeam [description]
+	 * Este metodo permite añardir un equipo a la lista de equipos que existen en el
+	 * juego.
+	 * 
+	 * @param newTeam El nuevo objeto de tipo Team ques es un nuevo equipo.
 	 */
 	public void addTeam(Team newTeam) {
 		if (sig == null) {
@@ -61,9 +71,11 @@ public class Team {
 		}
 	}
 	/**
-	 * [searchTeam description]
-	 * @param  name2 [description]
-	 * @return       [description]
+	 * Este metodo permite buscar un equipo dentro de la lista.
+	 * 
+	 * @param name2 Parametro que contiene el equipo buscado.
+	 * @return Retorna el equipo buscado en caso de que exista o null en caso de que
+	 *         no exista.
 	 */
 	public Team searchTeam(String name2) {
 		if (sig != null) {
@@ -78,8 +90,10 @@ public class Team {
 	}
 
 	/**
-	 * [addUniform description]
-	 * @param newUniform [description]
+	 * Este metodo permite añadir un unifome a la lista de uniformes existentes.
+	 * 
+	 * @param newUniform Parametro de tipo Uniform con el uniforme que se desea
+	 *                   añadir.
 	 */
 	public void addUniform(Uniform newUniform) {
 		if (firstUniform == null) {
@@ -91,9 +105,11 @@ public class Team {
 	}
 
 	/**
-	 * [searchUniform description]
-	 * @param  img [description]
-	 * @return     [description]
+	 * 
+	 * Este metodo me permite buscar un uniforme en la lista.
+	 * 
+	 * @param img Parametro que contiene la imagen del uniforme.
+	 * @return Retorna el uniforme buscado.
 	 */
 	public Uniform searchUniform(String img) {
 		if (firstUniform != null) {
@@ -107,10 +123,7 @@ public class Team {
 		}
 	}
 	
-	/**
-	 * [toString description]
-	 * @return [description]
-	 */
+	
 	public String toString() {
 		return name;
 	}
