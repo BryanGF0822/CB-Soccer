@@ -3,6 +3,13 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Esta clase es la encargada de gestionar los puntajes (Scores) de cada
+ * jugador.
+ * 
+ * @author guapi
+ *
+ */
 public class Score implements Serializable{
 
 	private String name;
@@ -11,10 +18,12 @@ public class Score implements Serializable{
 	private Score left;
 	
 	/**
-	 * [Score description]
-	 * @param  name  [description]
-	 * @param  score [description]
-	 * @return       [description]
+	 * Metodoconstructor de la clase Score que esta formado por un nombre de jugador
+	 * y el puntaje (score) optenido.
+	 * 
+	 * @param name  Parametro que contiene el nombre del jugador actual.
+	 * @param score Parametroq ue contiene el puntaje (score) del jugador actual.
+	 * @return Retorna un objeto de tipo Score.
 	 */
 	public Score(String name, int score) {
 		this.name = name;
@@ -47,8 +56,10 @@ public class Score implements Serializable{
 	}
 	
 	/**
-	 * [addScore description]
-	 * @param e [description]
+	 * Este metodo me permite añadir un score nuevo cada vez que se termina un
+	 * campeonato del juego.
+	 * 
+	 * @param e Parametro que contiene el puntaje o score del jugador.
 	 */
 	public void addScore(Score e) {
 		if (this.getScore() >= e.getScore()) {
@@ -68,8 +79,9 @@ public class Score implements Serializable{
 	}
 	
 	/**
-	 * [tenScore description]
-	 * @param lista [description]
+	 * Metodo que se encarga de almacenar los 10 ultimos puntajes que se han jugado.
+	 * 
+	 * @param lista Parametro que contiene la lista de scores.
 	 */
 	public void tenScore(ArrayList<Score> lista) {
 		if (lista.size() < 10) {
@@ -86,10 +98,7 @@ public class Score implements Serializable{
 
 	}
 	
-	/**
-	 * [toString description]
-	 * @return [description]
-	 */
+	
 	@Override
 	public String toString() {
 		return  " " + name + ": " + score;

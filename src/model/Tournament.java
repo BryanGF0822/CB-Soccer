@@ -5,15 +5,22 @@ import java.util.Random;
 
 import exceptions.ExceptionFinalJuego;
 
+/**
+ * Esta clase clase es la encargada de gestionar el torneo.
+ * 
+ * @author guapi
+ *
+ */
 public class Tournament implements Serializable{
 
 	private Position firstPosition;
 	private Team teamJugador;
 	
 	/**
-	 * [Tournament description]
-	 * @param  teamJugador [description]
-	 * @return             [description]
+	 * Metodo constructor que se encarga de crear el torneo.
+	 * 
+	 * @param teamJugador Parametro que contiene el torneo generado por el jugador.
+	 * @return Retorna un objeto de tipo model.
 	 */
 	public Tournament(Team teamJugador) {
 		firstPosition = new Position();
@@ -43,9 +50,12 @@ public class Tournament implements Serializable{
 	}
 	
 	/**
-	 * [anhadirHijos description]
-	 * @param pos   [description]
-	 * @param nivel [description]
+	 * Metodo que organiza los equipos en el arbol segun los resultados de los
+	 * partidos.
+	 * 
+	 * @param pos   Parametro que contiene la posicion del equipo.
+	 * @param nivel Parametro que contiene en nivel en el que va a quedar el equipo
+	 *              en el arbol.
 	 */
 	public void anhadirHijos(Position pos, int nivel) {
 		if (nivel < 3) {
@@ -70,8 +80,10 @@ public class Tournament implements Serializable{
 	}
 	
 	/**
-	 * [simularPartido description]
-	 * @param pos [description]
+	 * Este metodo me permite simular los partidos en los cuales el usuario no
+	 * participa.
+	 * 
+	 * @param pos Parametro que contiene la posicion de dicho equipo.
 	 */
 	public void simularPartido(Position pos) {
 		Team ganador = null;
@@ -81,9 +93,11 @@ public class Tournament implements Serializable{
 	}
 
 	/**
-	 * [isJugable description]
-	 * @param  position [description]
-	 * @return          [description]
+	 * Este metodo saber si el partido es jugable o no, es decir, si va a ser
+	 * simulado o va a ser jugado por el usuario.
+	 * 
+	 * @param position Parametro que contiene la posicion.
+	 * @return Retorna un booleano para saber si es jugable o no el partido.
 	 */
 	public boolean isJugable(Position position) {
 		boolean ret = false;
@@ -95,9 +109,10 @@ public class Tournament implements Serializable{
 	}
 	
 	/**
-	 * [addMatch description]
-	 * @param  pos [description]
-	 * @return     [description]
+	 * Este metodo me permite añadir un partido nuevo.
+	 * 
+	 * @param pos Parametro que contiene la posicion de ese partido en el arbol.
+	 * @return Retorna la posicion.
 	 */
 	public Match addMatch(Position pos) {
 		Team jugador = null;
@@ -123,8 +138,10 @@ public class Tournament implements Serializable{
 	}
 
 	/**
-	 * [getMatch description]
-	 * @return [description]
+	 * Este metodo me permite obtener el partido que se juega, sin importar si es
+	 * simulado o jugado por el usuario
+	 * 
+	 * @return Retorna el partido.
 	 */
 	public Match getMatch() {
 		Match m = null;
@@ -141,9 +158,12 @@ public class Tournament implements Serializable{
 	}
 
 	/**
-	 * [nextMatch description]
-	 * @return [description]
-	 * @throws ExceptionFinalJuego [description]
+	 * Este metodo me lleva al siguiente partido cada vez que se termina el anterior
+	 * pero solo cuando el usuario juega.
+	 * 
+	 * @return Retorna el siguiente partido en caso de que se deba jugar.
+	 * @throws ExceptionFinalJuego Excepcion en caso de que el juego termine avisar
+	 *                             al usario.
 	 */
 	public boolean nextMatch() throws ExceptionFinalJuego{
 		Position pos = firstPosition.posSig();
@@ -158,8 +178,9 @@ public class Tournament implements Serializable{
 	}
 	
 	/**
-	 * [getScore description]
-	 * @return [description]
+	 * Metodo que me permite conocer el puntaje final del usuarios.
+	 * 
+	 * @return Retorna un int con el puntaje obtenido.
 	 */
 	public int getScore() {
 		return firstPosition.getScore(teamJugador);
