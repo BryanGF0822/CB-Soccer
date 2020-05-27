@@ -35,4 +35,4 @@ Click here to see [Diagram Class](https://github.com/chumbi27escobar3/CB-Soccer/
 # :three:
 In this section you will find a video where you can see the software in operation.
 
-Click here to see [The Video]().
+Click here to see [The Video](https://youtu.be/252RTZdcVW0).
